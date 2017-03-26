@@ -1,0 +1,20 @@
+version: '2'
+services:
+  kali:
+    image: xieyunzi/kali-metasploit
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+    ports:
+      - 4444:4444
+    volumes:
+      - ./data/msf4:/root/.msf4
+      - ./config:/root/config
+    command: msfconsole
+
+networks:
+  default:
+    external:
+      name: xz-bridge

@@ -1,0 +1,5 @@
+#!/bin/bash
+# msfupdate
+# msfconsole
+
+docker-compose run --rm kali msfconsole -r /root/config/msfconsole.rc
